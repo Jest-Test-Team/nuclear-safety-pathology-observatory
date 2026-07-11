@@ -9,7 +9,7 @@
     "source_id": {"type": "string", "minLength": 1},
     "station_id": {"type": "string", "minLength": 1},
     "observed_at": {"type": "string", "format": "date-time"},
-    "metric": {"type": "string", "enum": ["gamma-dose-rate", "temperature", "humidity", "rainfall", "wind-speed", "seismic-intensity", "waste-inventory"]},
+    "metric": {"type": "string", "enum": ["gamma-dose-rate", "temperature", "humidity", "rainfall", "wind-speed", "seismic-intensity", "waste-inventory", "capacity-factor"]},
     "value": {"type": "number"},
     "unit": {"type": "string"},
     "latitude": {"type": "number", "minimum": -90, "maximum": 90},

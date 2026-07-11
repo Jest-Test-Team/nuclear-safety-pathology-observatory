@@ -49,11 +49,24 @@ sources:
     authority: Korea Hydro & Nuclear Power
     country: KR
     domain: weather
-    transport: xml
+    transport: xml-or-json
     access: public-api-key
     endpoint_env: NSPO_KHNP_WEATHER_URL
     credential_env: NSPO_KOREA_SERVICE_KEY
+    mapping_file: configs/mappings/kr-khnp-weather.yaml
     expected_interval_seconds: 300
+    enabled_by_default: false
+
+  - id: kr-khnp-operation-status
+    authority: Korea Hydro & Nuclear Power
+    country: KR
+    domain: public-operation-status
+    transport: xml-or-json
+    access: public-api-key
+    endpoint_env: NSPO_KHNP_OPERATION_STATUS_URL
+    credential_env: NSPO_KOREA_SERVICE_KEY
+    mapping_file: configs/mappings/kr-khnp-operation-status.yaml
+    expected_interval_seconds: 3600
     enabled_by_default: false
 
   - id: kr-korad-radiation
@@ -64,7 +77,56 @@ sources:
     access: public-api-key
     endpoint_env: NSPO_KORAD_RADIATION_URL
     credential_env: NSPO_KOREA_SERVICE_KEY
+    mapping_file: configs/mappings/kr-korad-radiation.yaml
     expected_interval_seconds: 300
+    enabled_by_default: false
+
+  - id: kr-korad-weather
+    authority: Korea Radioactive Waste Agency
+    country: KR
+    domain: weather
+    transport: xml-or-json
+    access: public-api-key
+    endpoint_env: NSPO_KORAD_WEATHER_URL
+    credential_env: NSPO_KOREA_SERVICE_KEY
+    mapping_file: configs/mappings/kr-korad-weather.yaml
+    expected_interval_seconds: 300
+    enabled_by_default: false
+
+  - id: kr-korad-seismic
+    authority: Korea Radioactive Waste Agency
+    country: KR
+    domain: seismic
+    transport: xml-or-json
+    access: public-api-key
+    endpoint_env: NSPO_KORAD_SEISMIC_URL
+    credential_env: NSPO_KOREA_SERVICE_KEY
+    mapping_file: configs/mappings/kr-korad-seismic.yaml
+    expected_interval_seconds: 300
+    enabled_by_default: false
+
+  - id: kr-korad-waste
+    authority: Korea Radioactive Waste Agency
+    country: KR
+    domain: waste-inventory
+    transport: xml-or-json
+    access: public-api-key
+    endpoint_env: NSPO_KORAD_WASTE_URL
+    credential_env: NSPO_KOREA_SERVICE_KEY
+    mapping_file: configs/mappings/kr-korad-waste.yaml
+    expected_interval_seconds: 86400
+    enabled_by_default: false
+
+  - id: kr-korad-silo
+    authority: Korea Radioactive Waste Agency
+    country: KR
+    domain: silo-status
+    transport: xml-or-json
+    access: public-api-key
+    endpoint_env: NSPO_KORAD_SILO_URL
+    credential_env: NSPO_KOREA_SERVICE_KEY
+    mapping_file: configs/mappings/kr-korad-silo.yaml
+    expected_interval_seconds: 86400
     enabled_by_default: false
 
   - id: synthetic-demo

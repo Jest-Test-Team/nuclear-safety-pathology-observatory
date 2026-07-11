@@ -1,0 +1,14 @@
+source_id: kr-korad-radiation
+schema_hash: sha256:kr-korad-radiation-v1
+timezone: Asia/Seoul
+metric: gamma-dose-rate
+default_unit: nSv/h
+country: KR
+public_data: true
+fields:
+  station_id: [stationId, station_id, siteId]
+  observed_at: [measDt, observed_at, dateTime]
+  value: [doseRate, value, radiation]
+  unit: [unit]
+  latitude: [latitude, lat]
+  longitude: [longitude, lon]

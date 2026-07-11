@@ -1,0 +1,19 @@
+{
+  "response": {
+    "header": {"resultCode": "00", "resultMsg": "NORMAL SERVICE"},
+    "body": {
+      "items": {
+        "item": [
+          {
+            "stationId": "KR-WX-1",
+            "measDt": "2026-07-11T01:00:00",
+            "temperature": "18.5",
+            "unit": "degC",
+            "latitude": "35.7",
+            "longitude": "129.4"
+          }
+        ]
+      }
+    }
+  }
+}

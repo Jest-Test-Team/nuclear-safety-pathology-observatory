@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <header>
+    <resultCode>00</resultCode>
+    <resultMsg>NORMAL SERVICE</resultMsg>
+  </header>
+  <body>
+    <items>
+      <item>
+        <stationId>KR-RAD-1</stationId>
+        <measDt>2026-07-11T01:00:00</measDt>
+        <doseRate>55.2</doseRate>
+        <unit>nSv/h</unit>
+        <latitude>35.7</latitude>
+        <longitude>129.4</longitude>
+      </item>
+      <item>
+        <stationId>KR-RAD-2</stationId>
+        <measDt>2026-07-11T01:00:00</measDt>
+        <doseRate>54.1</doseRate>
+        <unit>nSv/h</unit>
+        <latitude>35.8</latitude>
+        <longitude>129.5</longitude>
+      </item>
+    </items>
+  </body>
+</response>

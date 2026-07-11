@@ -1,0 +1,14 @@
+source_id: kr-korad-silo
+schema_hash: sha256:kr-korad-silo-v1
+timezone: Asia/Seoul
+metric: waste-inventory
+default_unit: percent
+country: KR
+public_data: true
+fields:
+  station_id: [siloId, stationId, station_id]
+  observed_at: [measDt, observed_at, statusDt]
+  value: [fillRate, value, statusValue]
+  unit: [unit]
+  latitude: [latitude, lat]
+  longitude: [longitude, lon]

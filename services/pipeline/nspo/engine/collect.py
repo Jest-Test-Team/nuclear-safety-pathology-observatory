@@ -11,7 +11,7 @@ from typing import Any
 import yaml
 
 from nspo.connectors.base import ConnectorError, RawRecord
-from nspo.connectors.kr_public import KoreaPublicXMLConnector
+from nspo.connectors.kr_public import KoreaPublicAPIConnector
 from nspo.connectors.tw_nusc import TaiwanNUSCCSVConnector
 from nspo.engine.monitor import monitor_source_health
 from nspo.io.jsonio import write_json
@@ -30,7 +30,11 @@ def _connector_for(source: dict[str, Any]):
     if source_id.startswith("tw-nusc-"):
         return TaiwanNUSCCSVConnector(source_id, source["endpoint_env"])
     if source_id.startswith("kr-"):
-        return KoreaPublicXMLConnector(source_id, source["endpoint_env"], source.get("credential_env", "NSPO_KOREA_SERVICE_KEY"))
+        return KoreaPublicAPIConnector(
+            source_id,
+            source["endpoint_env"],
+            source.get("credential_env", "NSPO_KOREA_SERVICE_KEY"),
+        )
     raise ConnectorError(f"no connector registered for {source_id}")
 
 
@@ -73,7 +77,7 @@ def collect_source(
         station_lookup = build_station_lookup(station_raw)
 
     mapping = None
-    if source.get("mapping_file") or source_id.startswith("tw-nusc-radiation"):
+    if source.get("mapping_file") or source_id.startswith(("tw-nusc-radiation", "kr-")):
         mapping = load_mapping(source_id)
 
     observations: list[dict[str, Any]] = []

@@ -1,0 +1,14 @@
+source_id: kr-korad-weather
+schema_hash: sha256:kr-korad-weather-v1
+timezone: Asia/Seoul
+metric: humidity
+default_unit: percent
+country: KR
+public_data: true
+fields:
+  station_id: [stationId, station_id]
+  observed_at: [measDt, observed_at]
+  value: [humidity, value]
+  unit: [unit]
+  latitude: [latitude, lat]
+  longitude: [longitude, lon]

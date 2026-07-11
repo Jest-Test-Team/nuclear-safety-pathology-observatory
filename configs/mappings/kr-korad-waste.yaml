@@ -1,0 +1,14 @@
+source_id: kr-korad-waste
+schema_hash: sha256:kr-korad-waste-v1
+timezone: Asia/Seoul
+metric: waste-inventory
+default_unit: cpm
+country: KR
+public_data: true
+fields:
+  station_id: [facilityId, stationId, station_id]
+  observed_at: [measDt, observed_at, inventoryDt]
+  value: [inventory, value, amount]
+  unit: [unit]
+  latitude: [latitude, lat]
+  longitude: [longitude, lon]

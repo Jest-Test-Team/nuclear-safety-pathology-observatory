@@ -1,0 +1,14 @@
+source_id: kr-khnp-operation-status
+schema_hash: sha256:kr-khnp-operation-status-v1
+timezone: Asia/Seoul
+metric: capacity-factor
+default_unit: percent
+country: KR
+public_data: true
+fields:
+  station_id: [plantId, stationId, station_id]
+  observed_at: [measDt, observed_at, statusDt]
+  value: [capacityFactor, value, statusValue]
+  unit: [unit]
+  latitude: [latitude, lat]
+  longitude: [longitude, lon]

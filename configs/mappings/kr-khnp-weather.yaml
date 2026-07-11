@@ -1,0 +1,14 @@
+source_id: kr-khnp-weather
+schema_hash: sha256:kr-khnp-weather-v1
+timezone: Asia/Seoul
+metric: temperature
+default_unit: degC
+country: KR
+public_data: true
+fields:
+  station_id: [stationId, station_id, siteId]
+  observed_at: [measDt, observed_at, dateTime]
+  value: [temperature, temp, value]
+  unit: [unit]
+  latitude: [latitude, lat]
+  longitude: [longitude, lon]

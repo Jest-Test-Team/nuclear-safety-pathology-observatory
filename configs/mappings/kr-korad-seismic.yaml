@@ -1,0 +1,14 @@
+source_id: kr-korad-seismic
+schema_hash: sha256:kr-korad-seismic-v1
+timezone: Asia/Seoul
+metric: seismic-intensity
+default_unit: m/s
+country: KR
+public_data: true
+fields:
+  station_id: [stationId, station_id]
+  observed_at: [measDt, observed_at]
+  value: [intensity, value, pga]
+  unit: [unit]
+  latitude: [latitude, lat]
+  longitude: [longitude, lon]

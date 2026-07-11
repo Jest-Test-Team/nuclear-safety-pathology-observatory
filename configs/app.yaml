@@ -12,6 +12,8 @@ pipeline:
     - m/s
   max_future_timestamp_seconds: 300
   reject_direct_facility_control_fields: true
+  http_timeout_seconds: 20
+  rate_limit_seconds: 1
 findings:
   required_status: requires-expert-review
   forbidden_labels:
