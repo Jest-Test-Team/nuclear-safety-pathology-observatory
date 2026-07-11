@@ -6,6 +6,9 @@ from statistics import mean, pstdev
 from typing import Any
 from uuid import uuid4
 
+from nspo.config import load_app_config
+from nspo.safety import validate_findings, validate_observations
+
 REQUIRED_STATUS = "requires-expert-review"
 
 
@@ -177,12 +180,14 @@ def _schema_drift(rule: dict[str, Any], observations: list[dict[str, Any]]) -> l
     return findings
 
 
-def analyze(observations: list[dict[str, Any]], rules_document: dict[str, Any]) -> list[dict[str, Any]]:
-    for item in observations:
-        if item.get("public_data") is not True:
-            raise ValueError("all observations must be marked public_data=true")
-        if not item.get("provenance"):
-            raise ValueError("all observations require provenance")
+def analyze(
+    observations: list[dict[str, Any]],
+    rules_document: dict[str, Any],
+    *,
+    app_config: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
+    cfg = app_config or load_app_config()
+    validate_observations(observations, cfg)
 
     handlers = {
         "stale-feed": _stale_feed,
@@ -201,4 +206,5 @@ def analyze(observations: list[dict[str, Any]], rules_document: dict[str, Any]) 
                 if rules_version:
                     finding["rules_version"] = rules_version
                 findings.append(finding)
+    validate_findings(findings, cfg)
     return findings

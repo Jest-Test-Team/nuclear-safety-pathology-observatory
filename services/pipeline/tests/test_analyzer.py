@@ -46,3 +46,14 @@ def test_rejects_non_public_observations():
         assert "public_data" in str(exc)
     else:
         raise AssertionError("expected ValueError")
+
+
+def test_rejects_unsupported_unit():
+    observations = load_json(ROOT / "data/synthetic/observations.json")
+    observations[0]["unit"] = "not-a-real-unit"
+    try:
+        analyze(observations, _rules())
+    except ValueError as exc:
+        assert "unsupported unit" in str(exc)
+    else:
+        raise AssertionError("expected ValueError")

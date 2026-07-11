@@ -6,6 +6,9 @@ from pathlib import Path
 import yaml
 from jsonschema import Draft202012Validator
 
+from nspo.config import load_app_config
+from nspo.safety import validate_findings, validate_observations
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -19,15 +22,16 @@ def main() -> None:
     for item in observations:
         validator.validate(item)
 
+    app_config = load_app_config(ROOT / "configs" / "app.yaml")
+    validate_observations(observations, app_config)
+
     findings_path = ROOT / "data/derived/findings.json"
     if findings_path.exists():
         findings = json.loads(findings_path.read_text(encoding="utf-8"))
         finding_validator = Draft202012Validator(finding_schema)
-        forbidden = {"confirmed-accident", "confirmed-release", "facility-unsafe", "emergency-alert"}
         for item in findings:
             finding_validator.validate(item)
-            text = json.dumps(item).lower()
-            assert not any(label in text for label in forbidden)
+        validate_findings(findings, app_config)
 
     yaml.safe_load((ROOT / "configs/sources.yaml").read_text(encoding="utf-8"))
     yaml.safe_load((ROOT / "configs/app.yaml").read_text(encoding="utf-8"))
