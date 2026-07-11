@@ -7,9 +7,13 @@ sources:
     transport: csv
     access: public
     endpoint_env: NSPO_TW_NUSC_RADIATION_URL
+    dataset_page: https://www.nusc.gov.tw/
+    mapping_file: configs/mappings/tw-nusc-radiation-realtime.yaml
     expected_interval_seconds: 300
+    timezone: Asia/Taipei
+    license_notes: Confirm current open-data reuse terms on the official dataset page before retention.
     enabled_by_default: false
-    notes: Configure from the current official dataset page. Do not hard-code transient download URLs.
+    notes: Configure from the current official realtime radiation dataset page. Do not hard-code transient download URLs.
 
   - id: tw-nusc-station-metadata
     authority: Taiwan Nuclear Safety Commission
@@ -18,8 +22,28 @@ sources:
     transport: csv
     access: public
     endpoint_env: NSPO_TW_NUSC_STATIONS_URL
+    dataset_page: https://www.nusc.gov.tw/
+    mapping_file: configs/mappings/tw-nusc-station-metadata.yaml
     expected_interval_seconds: 86400
+    timezone: Asia/Taipei
+    license_notes: Confirm current open-data reuse terms on the official dataset page before retention.
     enabled_by_default: false
+    notes: Station coordinates and identifiers used to join spatial context onto radiation observations.
+
+  - id: tw-nusc-radiation-monthly
+    authority: Taiwan Nuclear Safety Commission
+    country: TW
+    domain: radiological-environment-historical
+    transport: csv
+    access: public
+    endpoint_env: NSPO_TW_NUSC_MONTHLY_URL
+    dataset_page: https://www.nusc.gov.tw/
+    mapping_file: configs/mappings/tw-nusc-radiation-monthly.yaml
+    expected_interval_seconds: 2592000
+    timezone: Asia/Taipei
+    license_notes: Confirm current open-data reuse terms on the official dataset page before retention.
+    enabled_by_default: false
+    notes: Historical monthly exports. Each retrieval is versioned; never silently overwrite prior evidence.
 
   - id: kr-khnp-weather
     authority: Korea Hydro & Nuclear Power
