@@ -1,0 +1,17 @@
+:root { font-family: Inter, system-ui, sans-serif; color: #17202a; background: #f4f6f7; }
+body { margin: 0; }
+header, main { max-width: 1120px; margin: auto; padding: 28px; }
+header { padding-top: 56px; }
+h1 { font-size: clamp(2rem, 5vw, 4.5rem); line-height: .95; max-width: 900px; }
+.eyebrow { letter-spacing: .18em; font-weight: 700; }
+.warning { border-left: 4px solid #17202a; padding-left: 14px; max-width: 720px; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 28px 0; }
+.summary article, .card { background: white; border: 1px solid #d5d8dc; border-radius: 14px; padding: 20px; }
+.summary span { font-size: 2rem; font-weight: 750; display: block; }
+.summary small { color: #566573; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.row { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+.status { font-size: .75rem; border: 1px solid #17202a; border-radius: 999px; padding: 5px 8px; white-space: nowrap; }
+pre { white-space: pre-wrap; background: #f8f9f9; padding: 10px; border-radius: 8px; }
+li { margin-bottom: 7px; }
+@media (max-width: 700px) { .summary { grid-template-columns: 1fr; } }

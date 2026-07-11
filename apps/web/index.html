@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nuclear Safety Pathology Observatory</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <p class="eyebrow">PUBLIC-DATA RESEARCH PLATFORM</p>
+    <h1>Nuclear Safety Pathology Observatory</h1>
+    <p class="warning">Not an official warning system, facility control system, or accident detector.</p>
+  </header>
+  <main>
+    <section class="summary">
+      <article><span id="count">—</span><small>review candidates</small></article>
+      <article><span>Human</span><small>required reviewer</small></article>
+      <article><span>Public</span><small>data boundary</small></article>
+    </section>
+    <section>
+      <h2>Findings</h2>
+      <div id="findings" class="grid"></div>
+    </section>
+  </main>
+  <template id="card-template">
+    <article class="card">
+      <div class="row"><strong class="rule"></strong><span class="status"></span></div>
+      <pre class="scope"></pre>
+      <p><b>Alternative explanations</b></p>
+      <ul class="alternatives"></ul>
+      <p><b>Limitations</b></p>
+      <ul class="limitations"></ul>
+      <small class="uncertainty"></small>
+    </article>
+  </template>
+  <script src="app.js"></script>
+</body>
+</html>

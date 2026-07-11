@@ -1,0 +1,23 @@
+version: 1
+pipeline:
+  strict_public_data_only: true
+  require_provenance: true
+  accepted_units:
+    - nSv/h
+    - uSv/h
+    - cpm
+    - degC
+    - percent
+    - mm
+    - m/s
+  max_future_timestamp_seconds: 300
+  reject_direct_facility_control_fields: true
+findings:
+  required_status: requires-expert-review
+  forbidden_labels:
+    - confirmed-accident
+    - confirmed-release
+    - facility-unsafe
+    - emergency-alert
+  require_alternative_explanations: true
+  require_limitations: true

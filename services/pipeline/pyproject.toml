@@ -1,0 +1,15 @@
+[project]
+name = "nspo-pipeline"
+version = "0.1.0"
+description = "Public-data normalization and transparent trajectory analysis for NSPO"
+requires-python = ">=3.11"
+dependencies = [
+  "PyYAML>=6.0",
+  "jsonschema>=4.22",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

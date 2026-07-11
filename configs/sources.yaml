@@ -1,0 +1,54 @@
+version: 1
+sources:
+  - id: tw-nusc-radiation-realtime
+    authority: Taiwan Nuclear Safety Commission
+    country: TW
+    domain: radiological-environment
+    transport: csv
+    access: public
+    endpoint_env: NSPO_TW_NUSC_RADIATION_URL
+    expected_interval_seconds: 300
+    enabled_by_default: false
+    notes: Configure from the current official dataset page. Do not hard-code transient download URLs.
+
+  - id: tw-nusc-station-metadata
+    authority: Taiwan Nuclear Safety Commission
+    country: TW
+    domain: station-metadata
+    transport: csv
+    access: public
+    endpoint_env: NSPO_TW_NUSC_STATIONS_URL
+    expected_interval_seconds: 86400
+    enabled_by_default: false
+
+  - id: kr-khnp-weather
+    authority: Korea Hydro & Nuclear Power
+    country: KR
+    domain: weather
+    transport: xml
+    access: public-api-key
+    endpoint_env: NSPO_KHNP_WEATHER_URL
+    credential_env: NSPO_KOREA_SERVICE_KEY
+    expected_interval_seconds: 300
+    enabled_by_default: false
+
+  - id: kr-korad-radiation
+    authority: Korea Radioactive Waste Agency
+    country: KR
+    domain: radiological-environment
+    transport: xml-or-json
+    access: public-api-key
+    endpoint_env: NSPO_KORAD_RADIATION_URL
+    credential_env: NSPO_KOREA_SERVICE_KEY
+    expected_interval_seconds: 300
+    enabled_by_default: false
+
+  - id: synthetic-demo
+    authority: NSPO
+    country: ZZ
+    domain: synthetic
+    transport: file
+    access: synthetic
+    path: data/synthetic/observations.json
+    expected_interval_seconds: 300
+    enabled_by_default: true

@@ -1,0 +1,34 @@
+services:
+  pipeline:
+    build:
+      context: .
+      dockerfile: services/pipeline/Dockerfile
+    command: ["python", "-m", "nspo.engine.cli", "--input", "/workspace/data/synthetic/observations.json", "--rules", "/workspace/rules/patterns.yaml", "--output", "/workspace/data/derived/findings.json"]
+    volumes:
+      - ./data:/workspace/data
+      - ./rules:/workspace/rules:ro
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      NSPO_API_ADDR: ":8080"
+      NSPO_DATA_DIR: "/workspace/data/derived"
+      NSPO_REVIEW_STORE: "/workspace/data/runtime/reviews.json"
+    volumes:
+      - ./data:/workspace/data
+    ports:
+      - "8080:8080"
+    depends_on:
+      pipeline:
+        condition: service_completed_successfully
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    ports:
+      - "8081:80"
+    depends_on:
+      - api

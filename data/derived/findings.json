@@ -1,0 +1,229 @@
+[
+  {
+    "finding_id": "finding-bff65be4-2e24-4236-bfc2-e77b8fbbdbce",
+    "rule_id": "stale-feed",
+    "finding_type": "data-quality",
+    "status": "requires-expert-review",
+    "created_at": "2026-07-11T09:57:39.479418+00:00",
+    "scope": {
+      "station_id": "ZZ-F",
+      "metric": "gamma-dose-rate",
+      "gap_seconds": 1500.0,
+      "expected_interval_seconds": 300.0
+    },
+    "supporting_evidence": [
+      "obs-031",
+      "obs-032"
+    ],
+    "missing_evidence": [
+      "official maintenance notice",
+      "upstream publication status"
+    ],
+    "alternative_explanations": [
+      "upstream publication delay",
+      "network interruption",
+      "scheduled maintenance"
+    ],
+    "limitations": [
+      "Feed staleness does not imply an environmental or facility event."
+    ],
+    "uncertainty": 0.3,
+    "synthetic": true
+  },
+  {
+    "finding_id": "finding-927d691a-9292-43fa-a76f-0eb6ffe80147",
+    "rule_id": "constant-value",
+    "finding_type": "data-quality",
+    "status": "requires-expert-review",
+    "created_at": "2026-07-11T09:57:39.479478+00:00",
+    "scope": {
+      "station_id": "ZZ-E",
+      "metric": "gamma-dose-rate"
+    },
+    "supporting_evidence": [
+      "obs-005",
+      "obs-010",
+      "obs-015",
+      "obs-020",
+      "obs-025",
+      "obs-030"
+    ],
+    "missing_evidence": [
+      "instrument maintenance record",
+      "independent comparison measurement"
+    ],
+    "alternative_explanations": [
+      "stable environmental conditions",
+      "sensor quantization",
+      "cached upstream response",
+      "sensor or pipeline fault"
+    ],
+    "limitations": [
+      "Constant readings alone cannot determine sensor failure."
+    ],
+    "uncertainty": 0.55,
+    "synthetic": true
+  },
+  {
+    "finding_id": "finding-44473d62-6ee0-4924-a878-360fd302a7d7",
+    "rule_id": "multi-station-deviation",
+    "finding_type": "trajectory-deviation",
+    "status": "requires-expert-review",
+    "created_at": "2026-07-11T09:57:39.479648+00:00",
+    "scope": {
+      "observed_at": "2026-07-11T00:25:00+00:00",
+      "stations": [
+        "ZZ-A",
+        "ZZ-B",
+        "ZZ-C",
+        "ZZ-D"
+      ],
+      "baseline_mean": 42.0
+    },
+    "supporting_evidence": [
+      "obs-026",
+      "obs-027",
+      "obs-028",
+      "obs-029"
+    ],
+    "missing_evidence": [
+      "regional weather observations",
+      "official event annotations",
+      "independent measurement network"
+    ],
+    "alternative_explanations": [
+      "regional weather influence",
+      "shared upstream processing change",
+      "legitimate regional environmental variation"
+    ],
+    "limitations": [
+      "Spatial concurrence is not proof of causation or a nuclear event."
+    ],
+    "uncertainty": 0.48,
+    "synthetic": true
+  },
+  {
+    "finding_id": "finding-c0f1c9e1-482c-4f63-94f5-92f0896536a0",
+    "rule_id": "post-event-recovery-delay",
+    "finding_type": "recovery-analysis",
+    "status": "requires-expert-review",
+    "created_at": "2026-07-11T09:57:39.479693+00:00",
+    "scope": {
+      "station_id": "ZZ-A",
+      "metric": "gamma-dose-rate",
+      "event": "synthetic-weather-front",
+      "recovery_window_minutes": 30
+    },
+    "supporting_evidence": [
+      "obs-026"
+    ],
+    "missing_evidence": [
+      "observations after recovery window",
+      "official event annotation",
+      "instrument maintenance context"
+    ],
+    "alternative_explanations": [
+      "persistent weather influence",
+      "changed sensor configuration",
+      "missing baseline observations"
+    ],
+    "limitations": [
+      "Recovery analysis is descriptive and cannot assess facility safety."
+    ],
+    "uncertainty": 0.58,
+    "synthetic": true
+  },
+  {
+    "finding_id": "finding-0b1ff54d-2b88-4f72-bc1e-61b961c031a4",
+    "rule_id": "post-event-recovery-delay",
+    "finding_type": "recovery-analysis",
+    "status": "requires-expert-review",
+    "created_at": "2026-07-11T09:57:39.479725+00:00",
+    "scope": {
+      "station_id": "ZZ-B",
+      "metric": "gamma-dose-rate",
+      "event": "synthetic-weather-front",
+      "recovery_window_minutes": 30
+    },
+    "supporting_evidence": [
+      "obs-027"
+    ],
+    "missing_evidence": [
+      "observations after recovery window",
+      "official event annotation",
+      "instrument maintenance context"
+    ],
+    "alternative_explanations": [
+      "persistent weather influence",
+      "changed sensor configuration",
+      "missing baseline observations"
+    ],
+    "limitations": [
+      "Recovery analysis is descriptive and cannot assess facility safety."
+    ],
+    "uncertainty": 0.58,
+    "synthetic": true
+  },
+  {
+    "finding_id": "finding-f202651b-82d0-4f87-b3c1-3b3440e3c4db",
+    "rule_id": "post-event-recovery-delay",
+    "finding_type": "recovery-analysis",
+    "status": "requires-expert-review",
+    "created_at": "2026-07-11T09:57:39.479743+00:00",
+    "scope": {
+      "station_id": "ZZ-C",
+      "metric": "gamma-dose-rate",
+      "event": "synthetic-weather-front",
+      "recovery_window_minutes": 30
+    },
+    "supporting_evidence": [
+      "obs-028"
+    ],
+    "missing_evidence": [
+      "observations after recovery window",
+      "official event annotation",
+      "instrument maintenance context"
+    ],
+    "alternative_explanations": [
+      "persistent weather influence",
+      "changed sensor configuration",
+      "missing baseline observations"
+    ],
+    "limitations": [
+      "Recovery analysis is descriptive and cannot assess facility safety."
+    ],
+    "uncertainty": 0.58,
+    "synthetic": true
+  },
+  {
+    "finding_id": "finding-e5e1450b-b238-4be3-a02a-be185999e843",
+    "rule_id": "post-event-recovery-delay",
+    "finding_type": "recovery-analysis",
+    "status": "requires-expert-review",
+    "created_at": "2026-07-11T09:57:39.479757+00:00",
+    "scope": {
+      "station_id": "ZZ-D",
+      "metric": "gamma-dose-rate",
+      "event": "synthetic-weather-front",
+      "recovery_window_minutes": 30
+    },
+    "supporting_evidence": [
+      "obs-029"
+    ],
+    "missing_evidence": [
+      "observations after recovery window",
+      "official event annotation",
+      "instrument maintenance context"
+    ],
+    "alternative_explanations": [
+      "persistent weather influence",
+      "changed sensor configuration",
+      "missing baseline observations"
+    ],
+    "limitations": [
+      "Recovery analysis is descriptive and cannot assess facility safety."
+    ],
+    "uncertainty": 0.58,
+    "synthetic": true
+  }
+]

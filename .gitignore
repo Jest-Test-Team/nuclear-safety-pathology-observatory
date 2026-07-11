@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+bin/
+data/raw/
+data/runtime/
+coverage.out
+.DS_Store

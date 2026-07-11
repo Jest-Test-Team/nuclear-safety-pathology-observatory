@@ -1,0 +1,802 @@
+[
+  {
+    "observation_id": "obs-001",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-A",
+    "observed_at": "2026-07-11T00:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.0,
+    "unit": "nSv/h",
+    "latitude": 25.001,
+    "longitude": 121.501,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:00:00+00:00",
+      "source_record_id": "synthetic-001",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "8bb37656413c57264ba90fe4923d0f949848bf6cbb7c00ca09c8f6f0ba30551c"
+    },
+    "context": {
+      "baseline": 42.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-002",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-B",
+    "observed_at": "2026-07-11T00:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 43.0,
+    "unit": "nSv/h",
+    "latitude": 25.002,
+    "longitude": 121.502,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:00:00+00:00",
+      "source_record_id": "synthetic-002",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "2dd0ee37c0707a0873473b6867272a3040b82f41fc7b8e1c87e01348e5ddcdc1"
+    },
+    "context": {
+      "baseline": 43.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-003",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-C",
+    "observed_at": "2026-07-11T00:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 41.5,
+    "unit": "nSv/h",
+    "latitude": 25.003,
+    "longitude": 121.503,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:00:00+00:00",
+      "source_record_id": "synthetic-003",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "b7b7962fbb2e7e871a4d09598278499039cfbb54a366d48c5aba7b776745d06d"
+    },
+    "context": {
+      "baseline": 41.5,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-004",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-D",
+    "observed_at": "2026-07-11T00:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.5,
+    "unit": "nSv/h",
+    "latitude": 25.004,
+    "longitude": 121.504,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:00:00+00:00",
+      "source_record_id": "synthetic-004",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "27cae4bab95226710dc0c0fd7f3779d54901a2760d0325d1bc06597abd3bb2b7"
+    },
+    "context": {
+      "baseline": 42.5,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-005",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-E",
+    "observed_at": "2026-07-11T00:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 40.0,
+    "unit": "nSv/h",
+    "latitude": 25.005,
+    "longitude": 121.505,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:00:00+00:00",
+      "source_record_id": "synthetic-005",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "d1e9faaf1b02443398636d58201b514eade5a19003987d06f8783b086a531bac"
+    },
+    "context": {
+      "baseline": 40.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-006",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-A",
+    "observed_at": "2026-07-11T00:05:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.0,
+    "unit": "nSv/h",
+    "latitude": 25.006,
+    "longitude": 121.506,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:05:00+00:00",
+      "source_record_id": "synthetic-006",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "1a3394d96801f48e76b8774523f288b64ceae3db18fbcb529e37c6c2e68a2017"
+    },
+    "context": {
+      "baseline": 42.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-007",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-B",
+    "observed_at": "2026-07-11T00:05:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 43.0,
+    "unit": "nSv/h",
+    "latitude": 25.007,
+    "longitude": 121.507,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:05:00+00:00",
+      "source_record_id": "synthetic-007",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "5b73f0217f357199817b4dbf6e56c03b18f5ab4d255085bbb5cc11cdc75be874"
+    },
+    "context": {
+      "baseline": 43.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-008",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-C",
+    "observed_at": "2026-07-11T00:05:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 41.5,
+    "unit": "nSv/h",
+    "latitude": 25.008,
+    "longitude": 121.508,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:05:00+00:00",
+      "source_record_id": "synthetic-008",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "e5323f24f41d634ff82a0a96db669610396d002580c5ec7f9829de5d4173a852"
+    },
+    "context": {
+      "baseline": 41.5,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-009",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-D",
+    "observed_at": "2026-07-11T00:05:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.5,
+    "unit": "nSv/h",
+    "latitude": 25.009,
+    "longitude": 121.509,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:05:00+00:00",
+      "source_record_id": "synthetic-009",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "0f01dbfd2b9a1e1c7ce8d30aeb4c40e2539e02ed86c23cbc46b7a9190650f26d"
+    },
+    "context": {
+      "baseline": 42.5,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-010",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-E",
+    "observed_at": "2026-07-11T00:05:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 40.0,
+    "unit": "nSv/h",
+    "latitude": 25.01,
+    "longitude": 121.51,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:05:00+00:00",
+      "source_record_id": "synthetic-010",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "f44e29d705c6b02a4af3f1f7ada95125eaf2c8d9cdb18e4c06426a1630881fcb"
+    },
+    "context": {
+      "baseline": 40.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-011",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-A",
+    "observed_at": "2026-07-11T00:10:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.0,
+    "unit": "nSv/h",
+    "latitude": 25.011,
+    "longitude": 121.511,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:10:00+00:00",
+      "source_record_id": "synthetic-011",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "cbc62d8af4f699c5e72152f13fae21bcdbba94edc63072bde452b5a67d7aab23"
+    },
+    "context": {
+      "baseline": 42.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-012",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-B",
+    "observed_at": "2026-07-11T00:10:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 43.0,
+    "unit": "nSv/h",
+    "latitude": 25.012,
+    "longitude": 121.512,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:10:00+00:00",
+      "source_record_id": "synthetic-012",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "f8387876f26f6fdd39552709eada49f087b9cc4f7cc5e3a668bddbc65542e710"
+    },
+    "context": {
+      "baseline": 43.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-013",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-C",
+    "observed_at": "2026-07-11T00:10:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 41.5,
+    "unit": "nSv/h",
+    "latitude": 25.013,
+    "longitude": 121.513,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:10:00+00:00",
+      "source_record_id": "synthetic-013",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "3cdfbb4371b7d2b21a2a2df6ef667e465183af6a939d06c3dbf4fa6b583337a0"
+    },
+    "context": {
+      "baseline": 41.5,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-014",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-D",
+    "observed_at": "2026-07-11T00:10:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.5,
+    "unit": "nSv/h",
+    "latitude": 25.014,
+    "longitude": 121.514,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:10:00+00:00",
+      "source_record_id": "synthetic-014",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "aa195eb0d9a6896a7dc011b4bc180605cf0fc676a244c9c8d2050e85c910d1db"
+    },
+    "context": {
+      "baseline": 42.5,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-015",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-E",
+    "observed_at": "2026-07-11T00:10:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 40.0,
+    "unit": "nSv/h",
+    "latitude": 25.015,
+    "longitude": 121.515,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:10:00+00:00",
+      "source_record_id": "synthetic-015",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "2bab5dc2fb1234c9cf2fccf3b1e7ffca8a89fcae9bd3f4b9b75d6194586c2b68"
+    },
+    "context": {
+      "baseline": 40.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-016",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-A",
+    "observed_at": "2026-07-11T00:15:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.0,
+    "unit": "nSv/h",
+    "latitude": 25.016,
+    "longitude": 121.516,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:15:00+00:00",
+      "source_record_id": "synthetic-016",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "b30562d0d0f55ec97ae764c2028b3f8b326fc5618ff8a694e067606e913de902"
+    },
+    "context": {
+      "baseline": 42.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-017",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-B",
+    "observed_at": "2026-07-11T00:15:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 43.0,
+    "unit": "nSv/h",
+    "latitude": 25.017,
+    "longitude": 121.517,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:15:00+00:00",
+      "source_record_id": "synthetic-017",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "fac0dd4d532470071a24bf675958b3628a65b82ec39c2b3272c2b6faf30d34f4"
+    },
+    "context": {
+      "baseline": 43.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-018",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-C",
+    "observed_at": "2026-07-11T00:15:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 41.5,
+    "unit": "nSv/h",
+    "latitude": 25.018,
+    "longitude": 121.518,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:15:00+00:00",
+      "source_record_id": "synthetic-018",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "4b812b4871374ca819507f8bc7d35062efacb090b1fe702f7e5103f9f8be15a2"
+    },
+    "context": {
+      "baseline": 41.5,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-019",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-D",
+    "observed_at": "2026-07-11T00:15:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.5,
+    "unit": "nSv/h",
+    "latitude": 25.019,
+    "longitude": 121.519,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:15:00+00:00",
+      "source_record_id": "synthetic-019",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "34104196ae415617c595b9f5ba2f165b3de0ed7344ae0441290287a774a40645"
+    },
+    "context": {
+      "baseline": 42.5,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-020",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-E",
+    "observed_at": "2026-07-11T00:15:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 40.0,
+    "unit": "nSv/h",
+    "latitude": 25.02,
+    "longitude": 121.52,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:15:00+00:00",
+      "source_record_id": "synthetic-020",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "face60bed01971acd2beb7102d0acff0bc8ed06ea846749b5fda5f774ba06e56"
+    },
+    "context": {
+      "baseline": 40.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-021",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-A",
+    "observed_at": "2026-07-11T00:20:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.0,
+    "unit": "nSv/h",
+    "latitude": 25.021,
+    "longitude": 121.521,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:20:00+00:00",
+      "source_record_id": "synthetic-021",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "03a333941e92657a881e40640153de01de481a4b2579c43036f7c07930c9bfa0"
+    },
+    "context": {
+      "baseline": 42.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-022",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-B",
+    "observed_at": "2026-07-11T00:20:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 43.0,
+    "unit": "nSv/h",
+    "latitude": 25.022,
+    "longitude": 121.522,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:20:00+00:00",
+      "source_record_id": "synthetic-022",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "5b062409663d2bc4dd6be75690759488a91a40708d64b53e5dffe0b3798ac33b"
+    },
+    "context": {
+      "baseline": 43.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-023",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-C",
+    "observed_at": "2026-07-11T00:20:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 41.5,
+    "unit": "nSv/h",
+    "latitude": 25.023,
+    "longitude": 121.523,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:20:00+00:00",
+      "source_record_id": "synthetic-023",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "ef3c016f5b670a79ab76a0cc7dd7e2f156f53b2b857e961c81cb674ae8a6a388"
+    },
+    "context": {
+      "baseline": 41.5,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-024",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-D",
+    "observed_at": "2026-07-11T00:20:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.5,
+    "unit": "nSv/h",
+    "latitude": 25.024,
+    "longitude": 121.524,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:20:00+00:00",
+      "source_record_id": "synthetic-024",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "3f16b23bd2337cf4a01fec7085d55174688fc3d313693f729ba9a57ab5c10bce"
+    },
+    "context": {
+      "baseline": 42.5,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-025",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-E",
+    "observed_at": "2026-07-11T00:20:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 40.0,
+    "unit": "nSv/h",
+    "latitude": 25.025,
+    "longitude": 121.525,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:20:00+00:00",
+      "source_record_id": "synthetic-025",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "c2d89400557502ed545d59bbe64eb6ba6f6fb21b224beddd7ed76749a4072a26"
+    },
+    "context": {
+      "baseline": 40.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-026",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-A",
+    "observed_at": "2026-07-11T00:25:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 63.0,
+    "unit": "nSv/h",
+    "latitude": 25.026,
+    "longitude": 121.526,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:25:00+00:00",
+      "source_record_id": "synthetic-026",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "ad94266bf27546176c68a35c5afaa64ce9e1995e00553d629e544fc41f7a7b0f"
+    },
+    "context": {
+      "baseline": 42.0,
+      "event": "synthetic-weather-front",
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-027",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-B",
+    "observed_at": "2026-07-11T00:25:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 64.5,
+    "unit": "nSv/h",
+    "latitude": 25.027,
+    "longitude": 121.527,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:25:00+00:00",
+      "source_record_id": "synthetic-027",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "118d81f7d622f9ce4d97e3931a3b7019493146f9fbb7791c57807a5ca944d41e"
+    },
+    "context": {
+      "baseline": 43.0,
+      "event": "synthetic-weather-front",
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-028",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-C",
+    "observed_at": "2026-07-11T00:25:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 62.25,
+    "unit": "nSv/h",
+    "latitude": 25.028,
+    "longitude": 121.528,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:25:00+00:00",
+      "source_record_id": "synthetic-028",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "ce875e2682ef8b5fe5492d941670343132c9e18fe113ff5f27ec0a19d97a8f05"
+    },
+    "context": {
+      "baseline": 41.5,
+      "event": "synthetic-weather-front",
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-029",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-D",
+    "observed_at": "2026-07-11T00:25:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 180.0,
+    "unit": "nSv/h",
+    "latitude": 25.029,
+    "longitude": 121.529,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:25:00+00:00",
+      "source_record_id": "synthetic-029",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "9b46edb67be91de36216063202af678644004b87bdcb861e293d440280a5a100"
+    },
+    "context": {
+      "baseline": 42.5,
+      "event": "synthetic-weather-front",
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-030",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-E",
+    "observed_at": "2026-07-11T00:25:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 40.0,
+    "unit": "nSv/h",
+    "latitude": 25.03,
+    "longitude": 121.53,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:25:00+00:00",
+      "source_record_id": "synthetic-030",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "51d578764db2ffb5670b80225167b63d3ecd0debf0ee4a655257991cdec2eb1f"
+    },
+    "context": {
+      "baseline": 40.0,
+      "event": "synthetic-weather-front",
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-031",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-F",
+    "observed_at": "2026-07-11T00:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 43.0,
+    "unit": "nSv/h",
+    "latitude": 25.031,
+    "longitude": 121.531,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:00:00+00:00",
+      "source_record_id": "synthetic-031",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "d5eb0f3a64128e9a23c1839fc2036879c74c1c96cb5b51c0718cc05df192dfe8"
+    },
+    "context": {
+      "baseline": 43.0,
+      "event": null,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "obs-032",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-F",
+    "observed_at": "2026-07-11T00:25:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 43.0,
+    "unit": "nSv/h",
+    "latitude": 25.032,
+    "longitude": 121.532,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:25:00+00:00",
+      "source_record_id": "synthetic-032",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "7f5743f4c58623f1711e3a883b1c61973a6047f16a78ba27b6909f62fedfd191"
+    },
+    "context": {
+      "baseline": 43.0,
+      "event": "synthetic-weather-front",
+      "expected_interval_seconds": 300
+    }
+  }
+]

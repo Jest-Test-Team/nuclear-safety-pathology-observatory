@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/nspo/observation.schema.json",
+  "title": "NSPO normalized public observation",
+  "type": "object",
+  "required": ["observation_id", "source_id", "station_id", "observed_at", "metric", "value", "unit", "provenance", "public_data"],
+  "properties": {
+    "observation_id": {"type": "string", "minLength": 1},
+    "source_id": {"type": "string", "minLength": 1},
+    "station_id": {"type": "string", "minLength": 1},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "metric": {"type": "string", "enum": ["gamma-dose-rate", "temperature", "humidity", "rainfall", "wind-speed", "seismic-intensity", "waste-inventory"]},
+    "value": {"type": "number"},
+    "unit": {"type": "string"},
+    "latitude": {"type": "number", "minimum": -90, "maximum": 90},
+    "longitude": {"type": "number", "minimum": -180, "maximum": 180},
+    "country": {"type": "string", "minLength": 2, "maxLength": 2},
+    "public_data": {"const": true},
+    "synthetic": {"type": "boolean", "default": false},
+    "provenance": {
+      "type": "object",
+      "required": ["retrieved_at", "source_record_id"],
+      "properties": {
+        "retrieved_at": {"type": "string", "format": "date-time"},
+        "source_record_id": {"type": "string"},
+        "source_url": {"type": "string"},
+        "content_hash": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "context": {"type": "object"}
+  },
+  "additionalProperties": false
+}

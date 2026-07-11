@@ -1,0 +1,67 @@
+version: 1.0.0
+mode: research-public-data-only
+rules:
+  - id: stale-feed
+    title: Public feed freshness exceeded
+    type: data-quality
+    parameters:
+      multiplier: 3
+    alternatives:
+      - upstream publication delay
+      - network interruption
+      - scheduled maintenance
+    limitations:
+      - Feed staleness does not imply an environmental or facility event.
+
+  - id: constant-value
+    title: Prolonged identical measurements
+    type: data-quality
+    parameters:
+      minimum_count: 6
+    alternatives:
+      - stable environmental conditions
+      - sensor quantization
+      - cached upstream response
+      - sensor or pipeline fault
+    limitations:
+      - Constant readings alone cannot determine sensor failure.
+
+  - id: local-spatial-outlier
+    title: Local station differs from neighboring synthetic baseline
+    type: trajectory-deviation
+    parameters:
+      zscore_threshold: 3.5
+      neighbor_agreement_max: 0.34
+    alternatives:
+      - local environmental variation
+      - calibration drift
+      - station-specific shielding or siting difference
+      - transformation error
+    limitations:
+      - Public observations cannot establish a release source or facility condition.
+
+  - id: multi-station-deviation
+    title: Multiple nearby stations deviate together
+    type: trajectory-deviation
+    parameters:
+      minimum_stations: 3
+      zscore_threshold: 2.5
+    alternatives:
+      - regional weather influence
+      - shared upstream processing change
+      - legitimate regional environmental variation
+    limitations:
+      - Spatial concurrence is not proof of causation or a nuclear event.
+
+  - id: post-event-recovery-delay
+    title: Measurements did not return to baseline within configured window
+    type: recovery-analysis
+    parameters:
+      recovery_window_minutes: 30
+      baseline_tolerance_fraction: 0.15
+    alternatives:
+      - persistent weather influence
+      - changed sensor configuration
+      - missing baseline observations
+    limitations:
+      - Recovery analysis is descriptive and cannot assess facility safety.

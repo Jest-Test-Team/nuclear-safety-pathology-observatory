@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/nspo/finding.schema.json",
+  "title": "NSPO expert-review finding",
+  "type": "object",
+  "required": ["finding_id", "rule_id", "finding_type", "status", "created_at", "scope", "supporting_evidence", "alternative_explanations", "limitations", "uncertainty"],
+  "properties": {
+    "finding_id": {"type": "string"},
+    "rule_id": {"type": "string"},
+    "finding_type": {"type": "string"},
+    "status": {"const": "requires-expert-review"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "scope": {"type": "object"},
+    "supporting_evidence": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "missing_evidence": {"type": "array", "items": {"type": "string"}},
+    "alternative_explanations": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "uncertainty": {"type": "number", "minimum": 0, "maximum": 1},
+    "synthetic": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}
