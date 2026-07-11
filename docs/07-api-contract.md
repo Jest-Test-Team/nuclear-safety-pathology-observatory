@@ -8,6 +8,10 @@ Returns service health and research mode.
 
 Returns generated expert-review findings.
 
+## GET `/api/reviews`
+
+Returns the append-only expert-review log. When no reviews have been recorded yet, the response is an empty JSON array.
+
 ## POST `/api/reviews`
 
 Example:

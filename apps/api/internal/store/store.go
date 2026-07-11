@@ -34,6 +34,26 @@ func (s *Store) Findings() ([]model.Finding, error) {
 	return findings, nil
 }
 
+func (s *Store) Reviews() ([]model.Review, error) {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	data, err := os.ReadFile(s.reviewStore)
+	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			return []model.Review{}, nil
+		}
+		return nil, err
+	}
+	var reviews []model.Review
+	if err := json.Unmarshal(data, &reviews); err != nil {
+		return nil, err
+	}
+	if reviews == nil {
+		return []model.Review{}, nil
+	}
+	return reviews, nil
+}
+
 func (s *Store) AddReview(review model.Review) error {
 	allowed := map[string]bool{"acknowledged": true, "needs-more-data": true, "rejected": true, "corrected": true}
 	if !allowed[review.Decision] {

@@ -36,25 +36,33 @@ func (a API) findings(w http.ResponseWriter, r *http.Request) {
 }
 
 func (a API) reviews(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
+	switch r.Method {
+	case http.MethodGet:
+		reviews, err := a.Store.Reviews()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusServiceUnavailable)
+			return
+		}
+		writeJSON(w, http.StatusOK, reviews)
+	case http.MethodPost:
+		var review model.Review
+		if err := json.NewDecoder(r.Body).Decode(&review); err != nil {
+			http.Error(w, "invalid JSON", http.StatusBadRequest)
+			return
+		}
+		if strings.TrimSpace(review.FindingID) == "" || strings.TrimSpace(review.Reviewer) == "" {
+			http.Error(w, "finding_id and reviewer are required", http.StatusBadRequest)
+			return
+		}
+		review.CreatedAt = time.Now().UTC().Format(time.RFC3339Nano)
+		if err := a.Store.AddReview(review); err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
+		writeJSON(w, http.StatusCreated, review)
+	default:
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
-		return
 	}
-	var review model.Review
-	if err := json.NewDecoder(r.Body).Decode(&review); err != nil {
-		http.Error(w, "invalid JSON", http.StatusBadRequest)
-		return
-	}
-	if strings.TrimSpace(review.FindingID) == "" || strings.TrimSpace(review.Reviewer) == "" {
-		http.Error(w, "finding_id and reviewer are required", http.StatusBadRequest)
-		return
-	}
-	review.CreatedAt = time.Now().UTC().Format(time.RFC3339Nano)
-	if err := a.Store.AddReview(review); err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
-	}
-	writeJSON(w, http.StatusCreated, review)
 }
 
 func writeJSON(w http.ResponseWriter, status int, value any) {
