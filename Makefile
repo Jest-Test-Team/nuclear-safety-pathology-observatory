@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: demo analyze test run-api run-web validate clean
+.PHONY: demo analyze test run-api run-web validate clean collect
 
 demo:
 	PYTHONPATH=services/pipeline $(PYTHON) scripts/generate_demo.py
@@ -8,6 +8,9 @@ demo:
 
 analyze:
 	PYTHONPATH=services/pipeline $(PYTHON) -m nspo.engine.cli --input data/synthetic/observations.json --rules rules/patterns.yaml --output data/derived/findings.json
+
+collect:
+	PYTHONPATH=services/pipeline $(PYTHON) -m nspo.engine.collect --source $(SOURCE) $(if $(INPUT),--input-file $(INPUT),) $(if $(STATIONS),--station-file $(STATIONS),)
 
 test:
 	PYTHONPATH=services/pipeline $(PYTHON) -m pytest -q services/pipeline/tests
