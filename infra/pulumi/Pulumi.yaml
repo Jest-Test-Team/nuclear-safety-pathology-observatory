@@ -1,0 +1,6 @@
+name: nspo-oci
+runtime:
+  name: nodejs
+  options:
+    typescript: true
+description: Orchestrates Terraform validate/plan/apply for NSPO on OCI Neo

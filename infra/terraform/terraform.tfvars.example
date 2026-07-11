@@ -1,0 +1,23 @@
+# Copy to terraform.tfvars (gitignored) or pass -var-file=environments/neo.tfvars
+# Always Free only — home region of the tenancy.
+tenancy_ocid     = "ocid1.tenancy.oc1..example"
+user_ocid        = "ocid1.user.oc1..example"
+fingerprint      = "https://example.invalid/fingerprint"
+private_key_path = "~/.oci/oci_api_key.pem"
+region           = "ap-singapore-1"
+compartment_ocid = "ocid1.compartment.oc1..example"
+environment      = "neo"
+ssh_public_key   = "ssh-ed25519 AAAA... nspo-neo"
+
+# Always Free shape defaults (do not change to paid shapes)
+shape                   = "VM.Standard.A1.Flex"
+ocpus                   = 1
+memory_in_gbs           = 6
+boot_volume_size_in_gbs = 50
+enable_load_balancer    = false
+create_ocir_repos       = false
+
+# Prefer linux/arm64 images for A1:
+api_image      = "ghcr.io/example/nspo-api:latest"
+web_image      = "ghcr.io/example/nspo-web:latest"
+pipeline_image = "ghcr.io/example/nspo-pipeline:latest"

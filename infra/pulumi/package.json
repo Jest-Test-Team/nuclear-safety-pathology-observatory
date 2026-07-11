@@ -1,0 +1,17 @@
+{
+  "name": "nspo-oci-pulumi",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "@pulumi/command": "^1.0.0",
+    "@pulumi/pulumi": "^3.140.0"
+  }
+}

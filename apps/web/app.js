@@ -1,4 +1,4 @@
-const API = window.NSPO_API || 'http://localhost:8080';
+const API = (typeof window.NSPO_API === 'string') ? window.NSPO_API : 'http://localhost:8080';
 
 let labels = null;
 let findingsCache = [];

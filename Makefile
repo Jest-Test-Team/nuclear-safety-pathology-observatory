@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: demo analyze test run-api run-web validate clean collect research
+.PHONY: demo analyze test run-api run-web validate clean collect research oci-validate oci-plan oci-apply
 
 demo:
 	PYTHONPATH=services/pipeline $(PYTHON) scripts/generate_demo.py
@@ -28,6 +28,18 @@ run-web:
 
 validate:
 	PYTHONPATH=services/pipeline $(PYTHON) scripts/validate_repo.py
+
+oci-validate:
+	chmod +x scripts/oci/*.sh
+	./scripts/oci/validate.sh
+
+oci-plan:
+	chmod +x scripts/oci/*.sh
+	./scripts/oci/plan.sh
+
+oci-apply:
+	chmod +x scripts/oci/*.sh
+	./scripts/oci/apply.sh
 
 clean:
 	rm -rf data/derived/* data/runtime .pytest_cache services/pipeline/**/__pycache__

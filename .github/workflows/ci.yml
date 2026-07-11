@@ -14,7 +14,23 @@ jobs:
           python-version: '3.12'
       - uses: actions/setup-go@v5
         with:
-          go-version: '1.23.x'
+          go-version: '1.25.x'
       - run: pip install PyYAML jsonschema pytest
       - run: make demo
       - run: make test
+
+  oci-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.8"
+          terraform_wrapper: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Make scripts executable
+        run: chmod +x scripts/oci/*.sh
+      - name: Validate Terraform + Pulumi package
+        run: ./scripts/oci/validate.sh

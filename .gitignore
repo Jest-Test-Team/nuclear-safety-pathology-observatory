@@ -8,3 +8,15 @@ data/raw/
 data/runtime/
 coverage.out
 .DS_Store
+
+# IaC local state / secrets
+infra/terraform/.terraform/
+infra/terraform/*.tfstate*
+infra/terraform/tfplan
+infra/terraform/tfplan.txt
+infra/terraform/outputs.json
+infra/terraform/terraform.tfvars
+infra/pulumi/node_modules/
+infra/pulumi/bin/
+infra/pulumi/Pulumi.*.yaml.bak
+**/.pulumi/

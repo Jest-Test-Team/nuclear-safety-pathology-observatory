@@ -44,6 +44,8 @@ schema/                   JSON Schema contracts
 data/synthetic/           Safe synthetic demonstration data
 docs/                     Architecture, safety, governance, threat model
 db/                       Optional PostgreSQL schema
+infra/                    OCI Neo Terraform + Pulumi
+scripts/oci/              validate / plan / apply helpers
 ```
 
 ## Quick start
@@ -69,6 +71,23 @@ Docker:
 ```bash
 docker compose up --build
 ```
+
+## OCI Neo deploy (Always Free only)
+
+See [`infra/README.md`](infra/README.md). Stack is hard-limited to Always Free compute (`VM.Standard.A1.Flex` ≤2 OCPU/12GB or `E2.1.Micro`), no Container Instances, no LB.
+
+```bash
+# After configuring OCI credentials / arm64 image refs / SSH key:
+export TF_VAR_ssh_public_key="$(cat ~/.ssh/id_ed25519.pub)"
+make oci-validate
+make oci-plan
+make oci-apply
+```
+
+GitHub Actions:
+
+- `release` — build/push **linux/arm64** images to GHCR (OCIR optional) for Always Free A1
+- `deploy-oci-neo` — Terraform+Pulumi validate/plan/apply Always Free Neo VM
 
 ## Demo behavior
 

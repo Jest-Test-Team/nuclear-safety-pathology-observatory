@@ -1,0 +1,131 @@
+name: release
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Image/release tag (default: short SHA)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  packages: write
+
+env:
+  REGISTRY_GHCR: ghcr.io
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.meta.outputs.version }}
+      api_image_ghcr: ${{ steps.meta.outputs.api_ghcr }}
+      web_image_ghcr: ${{ steps.meta.outputs.web_ghcr }}
+      pipeline_image_ghcr: ${{ steps.meta.outputs.pipeline_ghcr }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: meta
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && -n "${{ inputs.tag }}" ]]; then
+            VERSION="${{ inputs.tag }}"
+          elif [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            VERSION="${GITHUB_REF_NAME}"
+          else
+            VERSION="sha-${GITHUB_SHA::12}"
+          fi
+          OWNER="$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')"
+          REPO="$(echo '${{ github.event.repository.name }}' | tr '[:upper:]' '[:lower:]')"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "api_ghcr=${REGISTRY_GHCR}/${OWNER}/${REPO}/nspo-api:${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "web_ghcr=${REGISTRY_GHCR}/${OWNER}/${REPO}/nspo-web:${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "pipeline_ghcr=${REGISTRY_GHCR}/${OWNER}/${REPO}/nspo-pipeline:${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "owner_repo=${OWNER}/${REPO}" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push GHCR images (linux/arm64 for Always Free A1)
+        run: |
+          set -euo pipefail
+          VERSION="${{ steps.meta.outputs.version }}"
+          OWNER_REPO="${{ steps.meta.outputs.owner_repo }}"
+          PLATFORM="linux/arm64"
+
+          docker buildx build --platform "$PLATFORM" -f apps/api/Dockerfile \
+            -t "ghcr.io/${OWNER_REPO}/nspo-api:${VERSION}" \
+            -t "ghcr.io/${OWNER_REPO}/nspo-api:latest" --push .
+          docker buildx build --platform "$PLATFORM" -f apps/web/Dockerfile \
+            -t "ghcr.io/${OWNER_REPO}/nspo-web:${VERSION}" \
+            -t "ghcr.io/${OWNER_REPO}/nspo-web:latest" --push .
+          docker buildx build --platform "$PLATFORM" -f services/pipeline/Dockerfile \
+            -t "ghcr.io/${OWNER_REPO}/nspo-pipeline:${VERSION}" \
+            -t "ghcr.io/${OWNER_REPO}/nspo-pipeline:latest" --push .
+
+      - name: Push to OCIR (optional)
+        continue-on-error: true
+        env:
+          OCI_AUTH_TOKEN: ${{ secrets.OCI_AUTH_TOKEN }}
+          OCI_TENANCY_NAMESPACE: ${{ secrets.OCI_TENANCY_NAMESPACE }}
+          OCI_REGION: ${{ secrets.OCI_REGION }}
+          OCI_USERNAME: ${{ secrets.OCI_USERNAME }}
+        run: |
+          set -euo pipefail
+          if [[ -z "${OCI_AUTH_TOKEN:-}" || -z "${OCI_TENANCY_NAMESPACE:-}" || -z "${OCI_REGION:-}" || -z "${OCI_USERNAME:-}" ]]; then
+            echo "OCIR secrets not fully configured; skipping OCIR push"
+            exit 0
+          fi
+          VERSION="${{ steps.meta.outputs.version }}"
+          OWNER_REPO="${{ steps.meta.outputs.owner_repo }}"
+          REGISTRY="${OCI_REGION}.ocir.io"
+          echo "$OCI_AUTH_TOKEN" | docker login "$REGISTRY" -u "${OCI_TENANCY_NAMESPACE}/${OCI_USERNAME}" --password-stdin
+          for NAME in api web pipeline; do
+            SRC="ghcr.io/${OWNER_REPO}/nspo-${NAME}:${VERSION}"
+            DST="${REGISTRY}/${OCI_TENANCY_NAMESPACE}/nspo/${NAME}:${VERSION}"
+            DST_LATEST="${REGISTRY}/${OCI_TENANCY_NAMESPACE}/nspo/${NAME}:latest"
+            docker tag "$SRC" "$DST"
+            docker tag "$SRC" "$DST_LATEST"
+            docker push "$DST"
+            docker push "$DST_LATEST"
+            echo "pushed ${DST}"
+          done
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.version }}
+          name: NSPO ${{ steps.meta.outputs.version }}
+          generate_release_notes: true
+          body: |
+            ## Always Free OCI Neo images (`linux/arm64`)
+
+            Built for `VM.Standard.A1.Flex` Always Free hosts.
+
+            ### GHCR
+            - `${{ steps.meta.outputs.api_ghcr }}`
+            - `${{ steps.meta.outputs.web_ghcr }}`
+            - `${{ steps.meta.outputs.pipeline_ghcr }}`
+
+            ### OCIR
+            When OCIR secrets are configured, matching tags are also pushed.
+
+            Deploy with workflow `deploy-oci-neo` (Always Free VM only) or:
+            ```bash
+            export NSPO_API_IMAGE=...
+            export NSPO_WEB_IMAGE=...
+            export NSPO_PIPELINE_IMAGE=...
+            export TF_VAR_ssh_public_key="$(cat ~/.ssh/id_ed25519.pub)"
+            ./scripts/oci/plan.sh && ./scripts/oci/apply.sh
+            ```
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

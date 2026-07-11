@@ -1,0 +1,54 @@
+#cloud-config
+package_update: true
+packages:
+  - curl
+  - yum-utils
+
+write_files:
+  - path: /opt/nspo/docker-compose.yml
+    permissions: "0644"
+    content: |
+      services:
+        pipeline:
+          image: ${pipeline_image}
+          restart: "no"
+          volumes:
+            - nspo-data:/workspace/data
+        api:
+          image: ${api_image}
+          restart: unless-stopped
+          network_mode: host
+          environment:
+            NSPO_API_ADDR: ":8080"
+            NSPO_DATA_DIR: /data/derived
+            NSPO_REVIEW_STORE: /data/runtime/reviews.json
+          volumes:
+            - nspo-data:/data
+          depends_on:
+            pipeline:
+              condition: service_completed_successfully
+        web:
+          image: ${web_image}
+          restart: unless-stopped
+          network_mode: host
+          depends_on:
+            - api
+      volumes:
+        nspo-data:
+
+  - path: /opt/nspo/bootstrap.sh
+    permissions: "0755"
+    content: |
+      #!/bin/bash
+      set -euo pipefail
+      if ! command -v docker >/dev/null 2>&1; then
+        curl -fsSL https://get.docker.com | sh
+        systemctl enable --now docker
+      fi
+      cd /opt/nspo
+      docker compose pull
+      docker compose up -d
+      echo "NSPO Always Free Neo online (${project_name}-${environment})"
+
+runcmd:
+  - /opt/nspo/bootstrap.sh
