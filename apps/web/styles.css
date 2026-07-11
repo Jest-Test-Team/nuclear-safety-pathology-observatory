@@ -14,4 +14,11 @@ h1 { font-size: clamp(2rem, 5vw, 4.5rem); line-height: .95; max-width: 900px; }
 .status { font-size: .75rem; border: 1px solid #17202a; border-radius: 999px; padding: 5px 8px; white-space: nowrap; }
 pre { white-space: pre-wrap; background: #f8f9f9; padding: 10px; border-radius: 8px; }
 li { margin-bottom: 7px; }
+.disclaimer { color: #566573; max-width: 760px; }
+.review-section { margin-top: 36px; }
+#review-form { display: grid; gap: 14px; max-width: 560px; background: white; border: 1px solid #d5d8dc; border-radius: 14px; padding: 20px; }
+#review-form label { display: grid; gap: 6px; font-weight: 600; }
+#review-form input, #review-form select, #review-form textarea { font: inherit; padding: 10px; border: 1px solid #d5d8dc; border-radius: 8px; }
+#review-form button { width: fit-content; padding: 10px 16px; border: 1px solid #17202a; background: #17202a; color: white; border-radius: 8px; cursor: pointer; }
+.form-status { color: #566573; min-height: 1.2em; }
 @media (max-width: 700px) { .summary { grid-template-columns: 1fr; } }

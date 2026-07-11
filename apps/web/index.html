@@ -10,7 +10,7 @@
   <header>
     <p class="eyebrow">PUBLIC-DATA RESEARCH PLATFORM</p>
     <h1>Nuclear Safety Pathology Observatory</h1>
-    <p class="warning">Not an official warning system, facility control system, or accident detector.</p>
+    <p class="warning">Not an official warning system, facility control system, or accident detector. Every finding is a review candidate derived from public or synthetic data and requires qualified human review.</p>
   </header>
   <main>
     <section class="summary">
@@ -20,13 +20,43 @@
     </section>
     <section>
       <h2>Findings</h2>
+      <p class="disclaimer">Supporting evidence, missing context, alternative explanations, and uncertainty are shown before any interpretive claim. No finding confirms an accident, release, or facility condition.</p>
       <div id="findings" class="grid"></div>
+    </section>
+    <section class="review-section">
+      <h2>Submit expert review</h2>
+      <p class="disclaimer">Reviews are append-only research workflow records. Allowed decisions: acknowledged, needs-more-data, rejected, corrected.</p>
+      <form id="review-form">
+        <label>Finding ID
+          <select id="finding-id" name="finding_id" required></select>
+        </label>
+        <label>Decision
+          <select id="decision" name="decision" required>
+            <option value="acknowledged">acknowledged</option>
+            <option value="needs-more-data">needs-more-data</option>
+            <option value="rejected">rejected</option>
+            <option value="corrected">corrected</option>
+          </select>
+        </label>
+        <label>Reviewer
+          <input id="reviewer" name="reviewer" type="email" placeholder="analyst@example.invalid" required />
+        </label>
+        <label>Comment
+          <textarea id="comment" name="comment" rows="3" placeholder="Request station maintenance context."></textarea>
+        </label>
+        <button type="submit">Submit review</button>
+        <p id="review-status" class="form-status" role="status"></p>
+      </form>
     </section>
   </main>
   <template id="card-template">
     <article class="card">
       <div class="row"><strong class="rule"></strong><span class="status"></span></div>
       <pre class="scope"></pre>
+      <p><b>Supporting evidence</b></p>
+      <ul class="evidence"></ul>
+      <p><b>Missing evidence</b></p>
+      <ul class="missing"></ul>
       <p><b>Alternative explanations</b></p>
       <ul class="alternatives"></ul>
       <p><b>Limitations</b></p>
