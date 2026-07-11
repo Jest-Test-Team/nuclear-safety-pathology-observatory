@@ -23,7 +23,18 @@ def test_demo_produces_review_only_findings():
     assert all(item["alternative_explanations"] for item in findings)
     assert all(item["limitations"] for item in findings)
     rule_ids = {item["rule_id"] for item in findings}
-    assert {"stale-feed", "constant-value", "multi-station-deviation", "post-event-recovery-delay"}.issubset(rule_ids)
+    assert {
+        "stale-feed",
+        "constant-value",
+        "multi-station-deviation",
+        "post-event-recovery-delay",
+        "schema-drift",
+    }.issubset(rule_ids)
+    drift = next(item for item in findings if item["rule_id"] == "schema-drift")
+    assert drift["status"] == "requires-expert-review"
+    assert drift["alternative_explanations"]
+    assert drift["limitations"]
+    assert drift["scope"]["expected_schema_hash"] != drift["scope"]["observed_schema_hash"]
 
 
 def test_rejects_non_public_observations():

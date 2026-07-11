@@ -13,8 +13,16 @@ def _iso_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def _finding(rule: dict[str, Any], evidence: list[dict[str, Any]], scope: dict[str, Any], uncertainty: float, missing: list[str]) -> dict[str, Any]:
-    return {
+def _finding(
+    rule: dict[str, Any],
+    evidence: list[dict[str, Any]],
+    scope: dict[str, Any],
+    uncertainty: float,
+    missing: list[str],
+    *,
+    rules_version: str | None = None,
+) -> dict[str, Any]:
+    payload = {
         "finding_id": f"finding-{uuid4()}",
         "rule_id": rule["id"],
         "finding_type": rule["type"],
@@ -28,6 +36,9 @@ def _finding(rule: dict[str, Any], evidence: list[dict[str, Any]], scope: dict[s
         "uncertainty": max(0.0, min(1.0, uncertainty)),
         "synthetic": all(bool(item.get("synthetic")) for item in evidence),
     }
+    if rules_version:
+        payload["rules_version"] = rules_version
+    return payload
 
 
 
@@ -131,6 +142,41 @@ def _post_event_recovery(rule: dict[str, Any], observations: list[dict[str, Any]
     return findings
 
 
+def _schema_drift(rule: dict[str, Any], observations: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Emit when observed field/schema hash diverges from the registered mapping hash."""
+    findings: list[dict[str, Any]] = []
+    seen: set[tuple[str, str, str]] = set()
+    for item in observations:
+        context = item.get("context") or {}
+        expected = context.get("expected_schema_hash")
+        observed = context.get("observed_schema_hash")
+        if not expected or not observed or expected == observed:
+            continue
+        key = (str(item["source_id"]), str(expected), str(observed))
+        if key in seen:
+            continue
+        seen.add(key)
+        scope = {
+            "source_id": item["source_id"],
+            "expected_schema_hash": expected,
+            "observed_schema_hash": observed,
+        }
+        if context.get("expected_fields") is not None:
+            scope["expected_fields"] = context["expected_fields"]
+        if context.get("observed_fields") is not None:
+            scope["observed_fields"] = context["observed_fields"]
+        findings.append(
+            _finding(
+                rule,
+                [item],
+                scope,
+                0.25,
+                ["updated official data dictionary", "confirmed current download URL", "revised field-mapping file"],
+            )
+        )
+    return findings
+
+
 def analyze(observations: list[dict[str, Any]], rules_document: dict[str, Any]) -> list[dict[str, Any]]:
     for item in observations:
         if item.get("public_data") is not True:
@@ -144,10 +190,15 @@ def analyze(observations: list[dict[str, Any]], rules_document: dict[str, Any]) 
         "local-spatial-outlier": _local_spatial_outlier,
         "multi-station-deviation": _multi_station,
         "post-event-recovery-delay": _post_event_recovery,
+        "schema-drift": _schema_drift,
     }
+    rules_version = str(rules_document.get("version", ""))
     findings: list[dict[str, Any]] = []
     for rule in rules_document.get("rules", []):
         handler = handlers.get(rule["id"])
         if handler:
-            findings.extend(handler(rule, observations))
+            for finding in handler(rule, observations):
+                if rules_version:
+                    finding["rules_version"] = rules_version
+                findings.append(finding)
     return findings

@@ -1,4 +1,4 @@
-version: 1.0.0
+version: 1.1.0
 mode: research-public-data-only
 rules:
   - id: stale-feed
@@ -65,3 +65,15 @@ rules:
       - missing baseline observations
     limitations:
       - Recovery analysis is descriptive and cannot assess facility safety.
+
+  - id: schema-drift
+    title: Observed fields diverge from registered source mapping
+    type: data-quality
+    parameters: {}
+    alternatives:
+      - upstream publisher renamed or added columns
+      - wrong dataset URL configured
+      - mapping file out of date
+      - encoding or delimiter change producing different headers
+    limitations:
+      - Schema drift is a publication-pipeline signal and does not imply an environmental event.

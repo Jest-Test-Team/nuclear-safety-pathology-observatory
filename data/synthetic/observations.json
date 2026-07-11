@@ -798,5 +798,43 @@
       "event": "synthetic-weather-front",
       "expected_interval_seconds": 300
     }
+  },
+  {
+    "observation_id": "obs-033",
+    "source_id": "synthetic-demo",
+    "station_id": "ZZ-G",
+    "observed_at": "2026-07-11T00:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.0,
+    "unit": "nSv/h",
+    "latitude": 25.033,
+    "longitude": 121.533,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T00:00:00+00:00",
+      "source_record_id": "synthetic-033",
+      "source_url": "synthetic://nspo/demo",
+      "content_hash": "e987a8bfaaf11f47db118784e9786467e0e1b7526aa5925b75baa431d261512e"
+    },
+    "context": {
+      "baseline": 42.0,
+      "event": null,
+      "expected_interval_seconds": 300,
+      "expected_schema_hash": "sha256:registered-nusc-headers-v1",
+      "observed_schema_hash": "sha256:upstream-added-extra-column",
+      "expected_fields": [
+        "station_id",
+        "observed_at",
+        "value"
+      ],
+      "observed_fields": [
+        "station_id",
+        "observed_at",
+        "value",
+        "unexpected_flag"
+      ]
+    }
   }
 ]

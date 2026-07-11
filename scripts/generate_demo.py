@@ -52,6 +52,18 @@ for minute in (0, 25):
     records.append(obs("ZZ-F", minute, 43.0, 43.0, index))
     index += 1
 
+# Schema-drift fixture: registered mapping hash diverges from observed headers.
+drift = obs("ZZ-G", 0, 42.0, 42.0, index)
+drift["context"] = {
+    **drift["context"],
+    "expected_schema_hash": "sha256:registered-nusc-headers-v1",
+    "observed_schema_hash": "sha256:upstream-added-extra-column",
+    "expected_fields": ["station_id", "observed_at", "value"],
+    "observed_fields": ["station_id", "observed_at", "value", "unexpected_flag"],
+}
+records.append(drift)
+index += 1
+
 path = ROOT / "data/synthetic/observations.json"
 path.parent.mkdir(parents=True, exist_ok=True)
 path.write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8")
