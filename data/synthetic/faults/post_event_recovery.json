@@ -1,0 +1,99 @@
+[
+  {
+    "observation_id": "fault-obs-0001",
+    "source_id": "synthetic-fault",
+    "station_id": "REC-1",
+    "observed_at": "2026-07-11T12:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 40.0,
+    "unit": "nSv/h",
+    "latitude": 25.1,
+    "longitude": 121.5,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T12:00:00+00:00",
+      "source_record_id": "fault-0001",
+      "source_url": "synthetic://nspo/faults",
+      "content_hash": "93f556ded03d68b52050beb7bf01d312448e934c5311ed39aa58b2aefec63daa"
+    },
+    "context": {
+      "baseline": 40.0,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "fault-obs-0002",
+    "source_id": "synthetic-fault",
+    "station_id": "REC-1",
+    "observed_at": "2026-07-11T12:05:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 80.0,
+    "unit": "nSv/h",
+    "latitude": 25.1,
+    "longitude": 121.5,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T12:05:00+00:00",
+      "source_record_id": "fault-0002",
+      "source_url": "synthetic://nspo/faults",
+      "content_hash": "8ba7a0f1dc53d63693335f9c8942c6ef833228bdf3bf3ca4d475dec11ebf2cd8"
+    },
+    "context": {
+      "baseline": 40.0,
+      "expected_interval_seconds": 300,
+      "event": "synthetic-weather-front"
+    }
+  },
+  {
+    "observation_id": "fault-obs-0003",
+    "source_id": "synthetic-fault",
+    "station_id": "REC-1",
+    "observed_at": "2026-07-11T12:15:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 79.0,
+    "unit": "nSv/h",
+    "latitude": 25.1,
+    "longitude": 121.5,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T12:15:00+00:00",
+      "source_record_id": "fault-0003",
+      "source_url": "synthetic://nspo/faults",
+      "content_hash": "1b5be0101e7d1270858b320bd33459239da457a92f2e98685ec4bbbb31ff72e6"
+    },
+    "context": {
+      "baseline": 40.0,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "fault-obs-0004",
+    "source_id": "synthetic-fault",
+    "station_id": "REC-1",
+    "observed_at": "2026-07-11T12:25:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 78.0,
+    "unit": "nSv/h",
+    "latitude": 25.1,
+    "longitude": 121.5,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T12:25:00+00:00",
+      "source_record_id": "fault-0004",
+      "source_url": "synthetic://nspo/faults",
+      "content_hash": "02bc6426c90c89e9fc74e1b4f44e9aac86d9bd248448e789945e176c6d35f464"
+    },
+    "context": {
+      "baseline": 40.0,
+      "expected_interval_seconds": 300
+    }
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "observation_id": "fault-obs-0001",
+    "source_id": "synthetic-fault",
+    "station_id": "MS-A",
+    "observed_at": "2026-07-11T12:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 60.0,
+    "unit": "nSv/h",
+    "latitude": 25.1,
+    "longitude": 121.5,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T12:00:00+00:00",
+      "source_record_id": "fault-0001",
+      "source_url": "synthetic://nspo/faults",
+      "content_hash": "9e2b4892e668d1e53c12c17b275f169af2bf1e632f4171af43e5b90e4d3652db"
+    },
+    "context": {
+      "baseline": 40.0,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "fault-obs-0002",
+    "source_id": "synthetic-fault",
+    "station_id": "MS-B",
+    "observed_at": "2026-07-11T12:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 61.0,
+    "unit": "nSv/h",
+    "latitude": 25.1,
+    "longitude": 121.5,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T12:00:00+00:00",
+      "source_record_id": "fault-0002",
+      "source_url": "synthetic://nspo/faults",
+      "content_hash": "bdd470b5bcd8ca52b5bf33f756651f33d93accd9e2c00769dce4a4418e3a1a70"
+    },
+    "context": {
+      "baseline": 40.0,
+      "expected_interval_seconds": 300
+    }
+  },
+  {
+    "observation_id": "fault-obs-0003",
+    "source_id": "synthetic-fault",
+    "station_id": "MS-C",
+    "observed_at": "2026-07-11T12:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 62.0,
+    "unit": "nSv/h",
+    "latitude": 25.1,
+    "longitude": 121.5,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T12:00:00+00:00",
+      "source_record_id": "fault-0003",
+      "source_url": "synthetic://nspo/faults",
+      "content_hash": "f3ef0672835145b5b53229297da139d7ea6727aeea35f12fcb1d7b25c7ec717e"
+    },
+    "context": {
+      "baseline": 40.0,
+      "expected_interval_seconds": 300
+    }
+  }
+]

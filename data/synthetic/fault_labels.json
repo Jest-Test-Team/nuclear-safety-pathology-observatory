@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "description": "Labeled synthetic faults for rule precision evaluation. Each case isolates one expected rule_id.",
+  "cases": [
+    {
+      "id": "fault-stale-feed",
+      "expected_rule_ids": ["stale-feed"],
+      "forbidden_rule_ids": ["schema-drift"],
+      "observations_file": "faults/stale_feed.json"
+    },
+    {
+      "id": "fault-constant-value",
+      "expected_rule_ids": ["constant-value"],
+      "forbidden_rule_ids": ["stale-feed", "schema-drift"],
+      "observations_file": "faults/constant_value.json"
+    },
+    {
+      "id": "fault-local-spatial-outlier",
+      "expected_rule_ids": ["local-spatial-outlier"],
+      "forbidden_rule_ids": ["schema-drift"],
+      "observations_file": "faults/local_spatial_outlier.json"
+    },
+    {
+      "id": "fault-multi-station-deviation",
+      "expected_rule_ids": ["multi-station-deviation"],
+      "forbidden_rule_ids": ["schema-drift"],
+      "observations_file": "faults/multi_station_deviation.json"
+    },
+    {
+      "id": "fault-post-event-recovery-delay",
+      "expected_rule_ids": ["post-event-recovery-delay"],
+      "forbidden_rule_ids": ["schema-drift"],
+      "observations_file": "faults/post_event_recovery.json"
+    },
+    {
+      "id": "fault-schema-drift",
+      "expected_rule_ids": ["schema-drift"],
+      "forbidden_rule_ids": ["stale-feed", "constant-value"],
+      "observations_file": "faults/schema_drift.json"
+    }
+  ]
+}

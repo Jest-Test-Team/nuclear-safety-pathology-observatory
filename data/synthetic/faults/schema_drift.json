@@ -1,0 +1,37 @@
+[
+  {
+    "observation_id": "fault-obs-0001",
+    "source_id": "synthetic-fault",
+    "station_id": "DRIFT-1",
+    "observed_at": "2026-07-11T12:00:00+00:00",
+    "metric": "gamma-dose-rate",
+    "value": 42.0,
+    "unit": "nSv/h",
+    "latitude": 25.1,
+    "longitude": 121.5,
+    "country": "ZZ",
+    "public_data": true,
+    "synthetic": true,
+    "provenance": {
+      "retrieved_at": "2026-07-11T12:00:00+00:00",
+      "source_record_id": "fault-0001",
+      "source_url": "synthetic://nspo/faults",
+      "content_hash": "d98fc8d9573bb4793056b5b545015bdae18f4b591da7fb4c52150719447ab4d4"
+    },
+    "context": {
+      "baseline": 42.0,
+      "expected_interval_seconds": 300,
+      "expected_schema_hash": "sha256:registered-v1",
+      "observed_schema_hash": "sha256:drifted-v2",
+      "expected_fields": [
+        "station_id",
+        "value"
+      ],
+      "observed_fields": [
+        "station_id",
+        "value",
+        "extra"
+      ]
+    }
+  }
+]
