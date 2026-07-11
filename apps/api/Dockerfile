@@ -1,6 +1,6 @@
-FROM golang:1.23-alpine AS build
+FROM golang:1.25-alpine AS build
 WORKDIR /src
-COPY apps/api/go.mod ./
+COPY apps/api/go.mod apps/api/go.sum ./
 COPY apps/api/ ./
 RUN CGO_ENABLED=0 go build -o /out/nspo-api ./cmd/server
 

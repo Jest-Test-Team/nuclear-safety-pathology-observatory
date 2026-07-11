@@ -1,0 +1,13 @@
+{
+  "score": 0.7424,
+  "components": {
+    "freshness_compliance": 0.0,
+    "schema_stability": 0.9697,
+    "provenance_completeness": 1.0,
+    "endpoint_availability_proxy": 1.0
+  },
+  "source_count": 1,
+  "observation_count": 33,
+  "generated_at": "2026-07-11T12:27:18.271392+00:00",
+  "disclaimer": "Maturity index describes public-data publication quality only; it is not a facility safety assessment."
+}

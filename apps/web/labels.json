@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "default_locale": "en",
+  "locales": ["en", "zh", "ko"],
+  "strings": {
+    "disclaimer": {
+      "en": "Not an official warning system, facility control system, or accident detector. Every finding requires qualified human review.",
+      "zh": "本平台不是官方預警、設施控制或事故判定系統。每筆發現皆須合格人員人工審查。",
+      "ko": "본 플랫폼은 공식 경보, 시설 제어 또는 사고 판정 시스템이 아닙니다. 모든 결과는 전문가 검토가 필요합니다."
+    },
+    "metrics": {
+      "gamma-dose-rate": {"en": "Gamma dose rate", "zh": "伽瑪劑量率", "ko": "감마 선량률"},
+      "temperature": {"en": "Temperature", "zh": "溫度", "ko": "기온"},
+      "humidity": {"en": "Humidity", "zh": "濕度", "ko": "습도"},
+      "rainfall": {"en": "Rainfall", "zh": "降雨", "ko": "강수량"},
+      "wind-speed": {"en": "Wind speed", "zh": "風速", "ko": "풍속"},
+      "seismic-intensity": {"en": "Seismic intensity", "zh": "地震強度", "ko": "지진 강도"},
+      "waste-inventory": {"en": "Waste inventory", "zh": "廢棄物存量", "ko": "폐기물 재고"},
+      "capacity-factor": {"en": "Public capacity factor", "zh": "公開運轉容量因子", "ko": "공개 설비이용률"}
+    },
+    "rules": {
+      "stale-feed": {"en": "Public feed freshness exceeded", "zh": "公開資料新鮮度逾時", "ko": "공개 피드 최신성 초과"},
+      "constant-value": {"en": "Prolonged identical measurements", "zh": "長時間相同量測值", "ko": "장시간 동일 측정값"},
+      "local-spatial-outlier": {"en": "Local station differs from neighbors", "zh": "測站相對鄰近站偏離", "ko": "인근 대비 국소 편차"},
+      "multi-station-deviation": {"en": "Multiple stations deviate together", "zh": "多測站同步偏離", "ko": "다수 관측소 동시 편차"},
+      "post-event-recovery-delay": {"en": "Post-event recovery delay", "zh": "事件後回復延遲", "ko": "사건 후 회복 지연"},
+      "schema-drift": {"en": "Schema drift versus registered mapping", "zh": "與登錄對應之結構漂移", "ko": "등록 매핑 대비 스키마 드리프트"}
+    }
+  }
+}

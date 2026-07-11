@@ -10,7 +10,7 @@ import (
 	"example.com/nspo/api/internal/store"
 )
 
-type API struct{ Store *store.Store }
+type API struct{ Store store.Backend }
 
 func (a API) Handler() http.Handler {
 	mux := http.NewServeMux()

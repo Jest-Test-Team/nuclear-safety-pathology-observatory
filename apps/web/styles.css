@@ -21,4 +21,8 @@ li { margin-bottom: 7px; }
 #review-form input, #review-form select, #review-form textarea { font: inherit; padding: 10px; border: 1px solid #d5d8dc; border-radius: 8px; }
 #review-form button { width: fit-content; padding: 10px 16px; border: 1px solid #17202a; background: #17202a; color: white; border-radius: 8px; cursor: pointer; }
 .form-status { color: #566573; min-height: 1.2em; }
+.header-row { display: flex; justify-content: space-between; gap: 16px; align-items: center; flex-wrap: wrap; }
+.locale-picker { display: grid; gap: 6px; font-size: .85rem; font-weight: 600; }
+.locale-picker select { font: inherit; padding: 8px; border: 1px solid #d5d8dc; border-radius: 8px; }
+.rule-label { color: #566573; margin-top: 0; }
 @media (max-width: 700px) { .summary { grid-template-columns: 1fr; } }

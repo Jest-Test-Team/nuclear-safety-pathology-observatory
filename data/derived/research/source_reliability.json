@@ -1,0 +1,20 @@
+[
+  {
+    "source_id": "synthetic-demo",
+    "authority_country": "ZZ",
+    "observation_count": 33,
+    "latest_observed_at": "2026-07-11T00:25:00+00:00",
+    "age_seconds": 43338.272662,
+    "fresh": false,
+    "schema_drift_count": 1,
+    "stations": [
+      "ZZ-A",
+      "ZZ-B",
+      "ZZ-C",
+      "ZZ-D",
+      "ZZ-E",
+      "ZZ-F",
+      "ZZ-G"
+    ]
+  }
+]

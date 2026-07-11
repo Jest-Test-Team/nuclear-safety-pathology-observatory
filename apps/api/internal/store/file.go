@@ -10,17 +10,23 @@ import (
 	"example.com/nspo/api/internal/model"
 )
 
-type Store struct {
+// FileStore keeps demo findings and append-only reviews on the local filesystem.
+type FileStore struct {
 	mu          sync.RWMutex
 	dataDir     string
 	reviewStore string
 }
 
-func New(dataDir, reviewStore string) *Store {
-	return &Store{dataDir: dataDir, reviewStore: reviewStore}
+func NewFileStore(dataDir, reviewStore string) *FileStore {
+	return &FileStore{dataDir: dataDir, reviewStore: reviewStore}
 }
 
-func (s *Store) Findings() ([]model.Finding, error) {
+// New preserves the previous constructor name for the default file backend.
+func New(dataDir, reviewStore string) *FileStore {
+	return NewFileStore(dataDir, reviewStore)
+}
+
+func (s *FileStore) Findings() ([]model.Finding, error) {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
 	data, err := os.ReadFile(filepath.Join(s.dataDir, "findings.json"))
@@ -34,7 +40,7 @@ func (s *Store) Findings() ([]model.Finding, error) {
 	return findings, nil
 }
 
-func (s *Store) Reviews() ([]model.Review, error) {
+func (s *FileStore) Reviews() ([]model.Review, error) {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
 	data, err := os.ReadFile(s.reviewStore)
@@ -54,7 +60,7 @@ func (s *Store) Reviews() ([]model.Review, error) {
 	return reviews, nil
 }
 
-func (s *Store) AddReview(review model.Review) error {
+func (s *FileStore) AddReview(review model.Review) error {
 	allowed := map[string]bool{"acknowledged": true, "needs-more-data": true, "rejected": true, "corrected": true}
 	if !allowed[review.Decision] {
 		return errors.New("unsupported review decision")

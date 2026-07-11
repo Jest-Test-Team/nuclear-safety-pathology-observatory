@@ -8,9 +8,18 @@
 </head>
 <body>
   <header>
-    <p class="eyebrow">PUBLIC-DATA RESEARCH PLATFORM</p>
+    <div class="header-row">
+      <p class="eyebrow">PUBLIC-DATA RESEARCH PLATFORM</p>
+      <label class="locale-picker">Language
+        <select id="locale" aria-label="Language">
+          <option value="en">English</option>
+          <option value="zh">繁體中文</option>
+          <option value="ko">한국어</option>
+        </select>
+      </label>
+    </div>
     <h1>Nuclear Safety Pathology Observatory</h1>
-    <p class="warning">Not an official warning system, facility control system, or accident detector. Every finding is a review candidate derived from public or synthetic data and requires qualified human review.</p>
+    <p class="warning" id="disclaimer">Not an official warning system, facility control system, or accident detector. Every finding is a review candidate derived from public or synthetic data and requires qualified human review.</p>
   </header>
   <main>
     <section class="summary">
@@ -20,7 +29,7 @@
     </section>
     <section>
       <h2>Findings</h2>
-      <p class="disclaimer">Supporting evidence, missing context, alternative explanations, and uncertainty are shown before any interpretive claim. No finding confirms an accident, release, or facility condition.</p>
+      <p class="disclaimer">Supporting evidence, missing context, alternative explanations, and uncertainty are shown before any interpretive claim. Finding rule IDs remain English machine identifiers.</p>
       <div id="findings" class="grid"></div>
     </section>
     <section class="review-section">
@@ -52,6 +61,7 @@
   <template id="card-template">
     <article class="card">
       <div class="row"><strong class="rule"></strong><span class="status"></span></div>
+      <p class="rule-label"></p>
       <pre class="scope"></pre>
       <p><b>Supporting evidence</b></p>
       <ul class="evidence"></ul>

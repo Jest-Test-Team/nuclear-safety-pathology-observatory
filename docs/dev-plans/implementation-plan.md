@@ -1,6 +1,6 @@
 # Implementation Plan
 
-Status: draft  
+Status: implemented (Phases 1–4 landed on main)  
 Aligned with: [`docs/08-roadmap.md`](../08-roadmap.md), [`docs/01-architecture.md`](../01-architecture.md), [`docs/02-safety-case.md`](../02-safety-case.md)  
 Last updated: 2026-07-11
 

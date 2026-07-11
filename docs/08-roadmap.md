@@ -2,28 +2,28 @@
 
 ## Phase 1 — Synthetic validation
 
-- transparent rules
-- source registry
-- review workflow
-- dashboard
-- schema and safety invariants
+- [x] transparent rules
+- [x] source registry
+- [x] review workflow
+- [x] dashboard
+- [x] schema and safety invariants
 
 ## Phase 2 — Taiwan public-data adapter
 
-- real-time station feed
-- station metadata
-- historical monthly data
-- data freshness and schema monitoring
+- [x] real-time station feed
+- [x] station metadata
+- [x] historical monthly data
+- [x] data freshness and schema monitoring
 
 ## Phase 3 — Korea public-data adapter
 
-- KHNP weather and public operation-status datasets
-- KORAD radiation, weather, seismic, waste, and silo datasets
-- XML/JSON normalization
+- [x] KHNP weather and public operation-status datasets
+- [x] KORAD radiation, weather, seismic, waste, and silo datasets
+- [x] XML/JSON normalization
 
 ## Phase 4 — Cross-border research
 
-- open-data observability maturity index
-- source reliability reports
-- event/recovery trajectories
-- multilingual metadata
+- [x] open-data observability maturity index
+- [x] source reliability reports
+- [x] event/recovery trajectories
+- [x] multilingual metadata
