@@ -1,0 +1,35 @@
+source_id: tw-nusc-radiation-realtime
+schema_hash: sha256:tw-nusc-radiation-realtime-v1
+timezone: Asia/Taipei
+metric: gamma-dose-rate
+default_unit: nSv/h
+country: TW
+public_data: true
+fields:
+  station_id:
+    - station_id
+    - StationID
+    - 測站代號
+    - 監測站代號
+  observed_at:
+    - observed_at
+    - ObsTime
+    - 監測時間
+    - 時間
+  value:
+    - value
+    - DoseRate
+    - 劑量率
+    - 即時監測值
+  unit:
+    - unit
+    - Unit
+    - 單位
+  latitude:
+    - latitude
+    - Lat
+    - 緯度
+  longitude:
+    - longitude
+    - Lon
+    - 經度

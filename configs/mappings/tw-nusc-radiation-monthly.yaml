@@ -1,0 +1,34 @@
+source_id: tw-nusc-radiation-monthly
+schema_hash: sha256:tw-nusc-radiation-monthly-v1
+timezone: Asia/Taipei
+metric: gamma-dose-rate
+default_unit: nSv/h
+country: TW
+public_data: true
+fields:
+  station_id:
+    - station_id
+    - StationID
+    - 測站代號
+  observed_at:
+    - observed_at
+    - Month
+    - 年月
+    - 資料年月
+  value:
+    - value
+    - AvgDoseRate
+    - 月平均值
+    - 平均劑量率
+  unit:
+    - unit
+    - Unit
+    - 單位
+  latitude:
+    - latitude
+    - Lat
+    - 緯度
+  longitude:
+    - longitude
+    - Lon
+    - 經度

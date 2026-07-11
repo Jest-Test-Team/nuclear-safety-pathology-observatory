@@ -1,0 +1,24 @@
+source_id: tw-nusc-station-metadata
+schema_hash: sha256:tw-nusc-station-metadata-v1
+timezone: Asia/Taipei
+country: TW
+public_data: true
+fields:
+  station_id:
+    - station_id
+    - StationID
+    - 測站代號
+    - 監測站代號
+  station_name:
+    - station_name
+    - StationName
+    - 測站名稱
+    - 監測站名稱
+  latitude:
+    - latitude
+    - Lat
+    - 緯度
+  longitude:
+    - longitude
+    - Lon
+    - 經度
