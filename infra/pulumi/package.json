@@ -18,6 +18,7 @@
     "undici": "^6.29.1",
     "ip-address": "^10.7.4",
     "brace-expansion": "^5.0.12",
-    "@grpc/grpc-js": "^1.14.5"
+    "@grpc/grpc-js": "^1.14.5",
+    "js-yaml": "^4.3.2"
   }
 }
