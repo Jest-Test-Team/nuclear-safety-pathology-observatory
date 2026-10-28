@@ -13,5 +13,8 @@
   "dependencies": {
     "@pulumi/command": "^1.0.0",
     "@pulumi/pulumi": "^3.140.0"
+  },
+  "overrides": {
+    "undici": "^6.29.1"
   }
 }
