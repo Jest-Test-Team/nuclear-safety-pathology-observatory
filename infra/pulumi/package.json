@@ -21,6 +21,7 @@
     "@grpc/grpc-js": "^1.14.5",
     "js-yaml": "^4.3.2",
     "@opentelemetry/propagator-jaeger": "^2.9.0",
-    "tar": "^7.5.21"
+    "tar": "^7.5.21",
+    "@opentelemetry/core": "^2.8.0"
   }
 }
